@@ -52,7 +52,7 @@ export default class Attach extends AbstractCommand {
     const siteId = flags['site-id'] || await cli.prompt('Site id')
     const domain = flags.domain || await cli.prompt('Target domain')
     const development = flags.development === true
-    const noShifterCDN = flags['no-shifter-cdn'] === false
+    const noShifterCDN = flags['no-shifter-cdn'] === true
     if (development) this.log('Work as development mode')
     try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, development)
