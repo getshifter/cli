@@ -2,5 +2,10 @@
   "extends": [
     "oclif",
     "oclif-typescript"
-  ]
+  ],
+  "rules": {
+    "valid-jsdoc": [
+      "off"
+    ]
+  }
 }
