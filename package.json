@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "author": "Shifter",
   "bin": {
-    "shifter-domain": "./bin/run"
+    "shifter-domain": "./bin/run",
+    "s-domain": "./bin/run",
+    "shifter-d": "./bin/run",
+    "sd": "./bin/run"
   },
   "bugs": "https://github.com/getshifter/domain-cli/issues",
   "dependencies": {
