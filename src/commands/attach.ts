@@ -1,6 +1,7 @@
 import {Command, flags} from '@oclif/command'
 import cli from 'cli-ux'
 import axios, { AxiosError } from 'axios'
+import { APIClientService, APIClientWithAuthService } from '../share/api/api.service';
 
 /**
  * Join url path
@@ -63,6 +64,10 @@ export default class Attach extends Command {
     "no-shifter-cdn": flags.boolean({
       description: "If you using another CDN like Netlify or own CloudFront etc... Please set the flag.",
       default: false
+    }),
+    "verbose": flags.boolean({
+      description: 'Show verbose',
+      default: false,
     })
   }
 
@@ -74,35 +79,25 @@ export default class Attach extends Command {
     const domain = flags.domain || await cli.prompt('Target domain')
     const development = flags.development === true
     const noShifterCDN = flags["no-shifter-cdn"] === false
+    const showVerbose = flags.verbose === true
     if (development) this.log('Work as development mode')
     try {
-      const endpoint = getEndpoint(development)
-      const loginUrl = pathJoin(endpoint, '/latest/login')
-      const loginResult = await axios.post(loginUrl, {
+      const client = new APIClientService(showVerbose, development)
+      
+      const loginResult = await client.post(`/latest/login`, {
         username,
         password
       })
-      const accessToken = loginResult.data.AccessToken
+      const accessToken = loginResult.AccessToken
       if (!accessToken) throw new Error('Failed to get the access token. Please try again.')
-      const { data: site } = await axios.get(pathJoin(endpoint, `/latest/sites/${siteId}`), {
-        headers: {
-          Authorization: accessToken
-        }
-      })
+      const clientWithAuth = new APIClientWithAuthService(accessToken, showVerbose, development)
+      const site = await clientWithAuth.get(`/latest/sites/${siteId}`)
       if (!site || site.project_id !== siteId) throw new Error(`No such site ${siteId}`)
-      const {data: domainObj} = await axios.get(pathJoin(endpoint, `/latest/sites/${siteId}/domains/${domain}`), {
-        headers: {
-          Authorization: accessToken
-        }
-      })
+      const domainObj = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
       if (!domainObj) throw new Error(`No such domain ${domain}`)
       if (domainObj.status !== 'ISSUED') throw new Error('The domain has not been veritied. Please wait for a while and try again.')
-      await axios.post(pathJoin(endpoint, `/latest/sites/${siteId}/domains/${domain}/attach`), {
+      await clientWithAuth.post(`/latest/sites/${siteId}/domains/${domain}/attach`, {
         use_shifter_domain: !noShifterCDN
-      }, {
-        headers: {
-          Authorization: accessToken
-        }
       })
       this.log(`Domain has been assigned`)
     } catch (e) {
