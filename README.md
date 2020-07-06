@@ -29,8 +29,10 @@ USAGE
 # Commands
 <!-- commands -->
 * [`shifter-domain abstract.command`](#shifter-domain-abstractcommand)
+* [`shifter-domain add`](#shifter-domain-add)
 * [`shifter-domain attach`](#shifter-domain-attach)
-* [`shifter-domain get [FILE]`](#shifter-domain-get-file)
+* [`shifter-domain get`](#shifter-domain-get)
+* [`shifter-domain get-verification-code [FILE]`](#shifter-domain-get-verification-code-file)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
 * [`shifter-domain list`](#shifter-domain-list)
 
@@ -42,6 +44,30 @@ USAGE
 ```
 
 _See code: [src/commands/abstract.command.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/abstract.command.ts)_
+
+## `shifter-domain add`
+
+Domain registration command
+
+```
+USAGE
+  $ shifter-domain add
+
+OPTIONS
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simply usage
+  $ shifter-domain add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
+```
+
+_See code: [src/commands/add.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/add.ts)_
 
 ## `shifter-domain attach`
 
@@ -73,13 +99,37 @@ EXAMPLES
 
 _See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/attach.ts)_
 
-## `shifter-domain get [FILE]`
+## `shifter-domain get`
+
+Domain get command
+
+```
+USAGE
+  $ shifter-domain get
+
+OPTIONS
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simply usage
+  $ shifter-domain get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
+```
+
+_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get.ts)_
+
+## `shifter-domain get-verification-code [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter-domain get [FILE]
+  $ shifter-domain get-verification-code [FILE]
 
 OPTIONS
   -f, --force
@@ -87,7 +137,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get.ts)_
+_See code: [src/commands/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get-verification-code.ts)_
 
 ## `shifter-domain help [COMMAND]`
 
@@ -108,7 +158,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.1.0
 
 ## `shifter-domain list`
 
-describe the command here
+Domain lists command
 
 ```
 USAGE
@@ -121,6 +171,10 @@ OPTIONS
   -v, --version            show CLI version
   --development            Work as development mode (Only for Shifter developer team)
   --verbose                Show verbose
+
+EXAMPLES
+  Simply usage
+  $ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/list.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/list.ts)_

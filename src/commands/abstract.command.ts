@@ -15,16 +15,4 @@ export abstract class AbstractCommand extends Command {
   }
 
   abstract async run(): Promise<void>
-
-  protected async withAPIErrorHandler(cb: () => Promise<void>): Promise<void> {
-      try {
-        return cb()
-      } catch (error) {
-      if (APIClientService.isAxiosError(error) && error.response) {
-        const response = error.response
-        this.error(`${response.status} - ${response.statusText}\n${response.data.message}`)
-      }
-      this.error(error)
-    }
-  }
 }

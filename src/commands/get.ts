@@ -1,6 +1,7 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
 import { AbstractCommand } from './abstract.command'
+import { APIClientService } from '../share/api/api.service'
 
 export default class Get extends AbstractCommand {
   static description = 'Domain get command'
@@ -42,7 +43,7 @@ export default class Get extends AbstractCommand {
 
   async run() {
     const {flags} = this.parse(Get)
-    this.withAPIErrorHandler(async () => {
+    try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
       const siteId = flags['site-id'] || await cli.prompt('Site id')
       const domain = flags.domain || await cli.prompt('Target domain')
@@ -51,6 +52,12 @@ export default class Get extends AbstractCommand {
         delete domainDetail.attached_project.notification_emails
       }
       this.log(JSON.stringify(domainDetail, null, 2))
-    })
+    } catch (error) {
+      if (APIClientService.isAxiosError(error) && error.response) {
+        const response = error.response
+        this.error(`${response.status} - ${response.statusText}\n${response.data.message}`)
+      }
+      this.error(error)
+    }
   }
 }

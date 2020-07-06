@@ -1,15 +1,16 @@
-import {flags} from '@oclif/command'
+import { flags} from '@oclif/command'
 import cli from 'cli-ux'
 import { AbstractCommand } from './abstract.command'
 import { APIClientService } from '../share/api/api.service'
 
-export default class List extends AbstractCommand {
-  static description = 'Domain lists command'
+export default class Add extends AbstractCommand {
+  static description = 'Domain registration command'
 
   static examples = [
     'Simply usage',
-    '$ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
+    '$ shifter-domain add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
+
   static flags = {
     version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
@@ -30,6 +31,10 @@ export default class List extends AbstractCommand {
       char: 'P',
       description: 'Shifter password',
     }),
+    domain: flags.string({
+      char: 'D',
+      description: 'target domain name (eg. example.com)'
+    }),
     'site-id': flags.string({
       char: 'S',
       description: 'Shifter site id',
@@ -37,21 +42,14 @@ export default class List extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(List)
+    const {flags} = this.parse(Add)
     try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
       const siteId = flags['site-id'] || await cli.prompt('Site id')
-      const domains = await clientWithAuth.get(`/latest/sites/${siteId}/domains`)
-      this.log(JSON.stringify(domains.map((domainDetail: {
-        attached_project?: {
-          notification_emails?: object
-        }
-      }) => {
-        if (domainDetail && domainDetail.attached_project) {
-          delete domainDetail.attached_project.notification_emails
-        }
-        return domainDetail
-      }), null, 2))
+      const domain = flags.domain || await cli.prompt('Target domain')
+      await clientWithAuth.post(`/latest/sites/${siteId}/domains/${domain}`)
+      const validationDetail = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}/validation`)
+      this.log(JSON.stringify(validationDetail, null, 2))
     } catch (error) {
       if (APIClientService.isAxiosError(error) && error.response) {
         const response = error.response
