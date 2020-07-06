@@ -1,7 +1,7 @@
 {
   "name": "@shifter/domain-cli",
   "description": "Simple Shifter domain management cli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Shifter",
   "bin": {
     "shifter-domain": "./bin/run"

@@ -19,7 +19,7 @@ $ npm install -g @shifter/domain-cli
 $ shifter-domain COMMAND
 running command...
 $ shifter-domain (-v|--version|version)
-@shifter/domain-cli/0.0.0 darwin-x64 node-v12.9.1
+@shifter/domain-cli/0.1.0 darwin-x64 node-v12.9.1
 $ shifter-domain --help [COMMAND]
 USAGE
   $ shifter-domain COMMAND
@@ -32,7 +32,7 @@ USAGE
 * [`shifter-domain add`](#shifter-domain-add)
 * [`shifter-domain attach`](#shifter-domain-attach)
 * [`shifter-domain get`](#shifter-domain-get)
-* [`shifter-domain get-verification-code [FILE]`](#shifter-domain-get-verification-code-file)
+* [`shifter-domain get-verification-code`](#shifter-domain-get-verification-code)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
 * [`shifter-domain list`](#shifter-domain-list)
 
@@ -43,7 +43,7 @@ USAGE
   $ shifter-domain abstract.command
 ```
 
-_See code: [src/commands/abstract.command.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/abstract.command.ts)_
+_See code: [src/commands/abstract.command.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/abstract.command.ts)_
 
 ## `shifter-domain add`
 
@@ -67,7 +67,7 @@ EXAMPLES
   $ shifter-domain add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
-_See code: [src/commands/add.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/add.ts)_
+_See code: [src/commands/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/add.ts)_
 
 ## `shifter-domain attach`
 
@@ -97,7 +97,7 @@ EXAMPLES
   test.example.com --no-shifter-cdn
 ```
 
-_See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/attach.ts)_
+_See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/attach.ts)_
 
 ## `shifter-domain get`
 
@@ -121,23 +121,32 @@ EXAMPLES
   $ shifter-domain get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
-_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get.ts)_
+_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/get.ts)_
 
-## `shifter-domain get-verification-code [FILE]`
+## `shifter-domain get-verification-code`
 
-describe the command here
+Domain verification code command
 
 ```
 USAGE
-  $ shifter-domain get-verification-code [FILE]
+  $ shifter-domain get-verification-code
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simply usage
+  $ shifter-domain get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx 
+  --domain test.example.com
 ```
 
-_See code: [src/commands/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get-verification-code.ts)_
+_See code: [src/commands/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/get-verification-code.ts)_
 
 ## `shifter-domain help [COMMAND]`
 
@@ -177,5 +186,5 @@ EXAMPLES
   $ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/list.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/list.ts)_
+_See code: [src/commands/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.0/src/commands/list.ts)_
 <!-- commandsstop -->
