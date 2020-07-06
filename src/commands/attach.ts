@@ -49,15 +49,13 @@ export default class Attach extends AbstractCommand {
 
   async run() {
     const {flags} = this.parse(Attach)
-    const username = flags.username || await cli.prompt('Shifter username')
-    const password = flags.password || await cli.prompt('Shifter password', {type: 'hide'})
     const siteId = flags['site-id'] || await cli.prompt('Site id')
     const domain = flags.domain || await cli.prompt('Target domain')
     const development = flags.development === true
     const noShifterCDN = flags['no-shifter-cdn'] === false
     if (development) this.log('Work as development mode')
     try {
-      const clientWithAuth = await this.setupApiClient(username, password, development, flags.verbose)
+      const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, development)
       const site = await clientWithAuth.get(`/latest/sites/${siteId}`)
       if (!site || site.project_id !== siteId) throw new Error(`No such site ${siteId}`)
       const domainObj = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)

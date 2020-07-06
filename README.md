@@ -28,28 +28,66 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`shifter-domain hello [FILE]`](#shifter-domain-hello-file)
+* [`shifter-domain abstract.command`](#shifter-domain-abstractcommand)
+* [`shifter-domain attach`](#shifter-domain-attach)
+* [`shifter-domain get [FILE]`](#shifter-domain-get-file)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
+* [`shifter-domain list`](#shifter-domain-list)
 
-## `shifter-domain hello [FILE]`
+## `shifter-domain abstract.command`
+
+```
+USAGE
+  $ shifter-domain abstract.command
+```
+
+_See code: [src/commands/abstract.command.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/abstract.command.ts)_
+
+## `shifter-domain attach`
+
+Domain attach command
+
+```
+USAGE
+  $ shifter-domain attach
+
+OPTIONS
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
+  --verbose                Show verbose
+
+EXAMPLES
+  Simply usage
+  $ shifter-domain attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
+  test.example.com
+
+    Use own CDN (Netlify or own CloudFront etc...)
+  $ shifter-domain attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
+  test.example.com --no-shifter-cdn
+```
+
+_See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/attach.ts)_
+
+## `shifter-domain get [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter-domain hello [FILE]
+  $ shifter-domain get [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
-
-EXAMPLE
-  $ shifter-domain hello
-  hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/hello.ts)_
+_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/get.ts)_
 
 ## `shifter-domain help [COMMAND]`
 
@@ -67,4 +105,23 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.1.0/src/commands/help.ts)_
+
+## `shifter-domain list`
+
+describe the command here
+
+```
+USAGE
+  $ shifter-domain list
+
+OPTIONS
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+```
+
+_See code: [src/commands/list.ts](https://github.com/getshifter/domain-cli/blob/v0.0.0/src/commands/list.ts)_
 <!-- commandsstop -->
