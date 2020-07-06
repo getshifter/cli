@@ -47,6 +47,9 @@
       "@oclif/plugin-help"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "getshifter/domain-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
