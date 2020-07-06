@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios'
 /**
  * GET Shifter API endpoint
  * @param env
@@ -44,6 +44,9 @@ export class APIClientService {
         const result = await axios.get(url, config)
         if (this.debugMode) console.log({result})
         return result.data
+    }
+    public static isAxiosError(error: Error | AxiosError): error is AxiosError {
+      return Object.prototype.hasOwnProperty.call(error, 'isAxiosError')
     }
 }
 
