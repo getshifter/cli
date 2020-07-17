@@ -19,6 +19,8 @@
     "tslib": "^1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@oclif/dev-cli": "^1",
     "@types/node": "^10",
     "eslint": "^5.13",
