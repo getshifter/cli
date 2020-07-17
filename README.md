@@ -28,22 +28,12 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`shifter-domain abstract.command`](#shifter-domain-abstractcommand)
 * [`shifter-domain add`](#shifter-domain-add)
 * [`shifter-domain attach`](#shifter-domain-attach)
 * [`shifter-domain get`](#shifter-domain-get)
 * [`shifter-domain get-verification-code`](#shifter-domain-get-verification-code)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
 * [`shifter-domain list`](#shifter-domain-list)
-
-## `shifter-domain abstract.command`
-
-```
-USAGE
-  $ shifter-domain abstract.command
-```
-
-_See code: [src/commands/abstract.command.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/abstract.command.ts)_
 
 ## `shifter-domain add`
 

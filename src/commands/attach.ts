@@ -1,7 +1,7 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
 import {APIClientService} from '../share/api/api.service'
-import {AbstractCommand} from './abstract.command'
+import {AbstractCommand} from '../share/abstract.command'
 
 export default class Attach extends AbstractCommand {
   static description = 'Domain attach command'
