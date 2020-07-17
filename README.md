@@ -30,7 +30,8 @@ USAGE
 <!-- commands -->
 * [`shifter-domain add`](#shifter-domain-add)
 * [`shifter-domain attach`](#shifter-domain-attach)
-* [`shifter-domain detach [FILE]`](#shifter-domain-detach-file)
+* [`shifter-domain delete [FILE]`](#shifter-domain-delete-file)
+* [`shifter-domain detach`](#shifter-domain-detach)
 * [`shifter-domain get`](#shifter-domain-get)
 * [`shifter-domain get-verification-code`](#shifter-domain-get-verification-code)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
@@ -90,18 +91,43 @@ EXAMPLES
 
 _See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/attach.ts)_
 
-## `shifter-domain detach [FILE]`
+## `shifter-domain delete [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter-domain detach [FILE]
+  $ shifter-domain delete [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
+```
+
+_See code: [src/commands/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/delete.ts)_
+
+## `shifter-domain detach`
+
+Domain detach command
+
+```
+USAGE
+  $ shifter-domain detach
+
+OPTIONS
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
+  --verbose                Show verbose
+
+EXAMPLE
+  $ shifter-domain detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
+  test.example.com
 ```
 
 _See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_

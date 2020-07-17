@@ -54,6 +54,18 @@ export class APIClientService {
       return result.data
     }
 
+    public async delete(path: string, config?: AxiosRequestConfig) {
+      return this._delete(path, config)
+    }
+
+    protected async _delete(path: string, config?: AxiosRequestConfig) {
+      const url = pathJoin(this.endpoint, path)
+      if (this.debugMode) console.log({url, path, config})
+      const result = await axios.delete(url, config)
+      if (this.debugMode) console.log({result})
+      return result.data
+    }
+
     public static isAxiosError(error: Error | AxiosError): error is AxiosError {
       return Object.prototype.hasOwnProperty.call(error, 'isAxiosError')
     }
@@ -84,5 +96,9 @@ export class APIClientWithAuthService extends APIClientService {
 
     public async get(path: string, config?: AxiosRequestConfig) {
       return this._get(path, this._putAccessTokenHeader(config))
+    }
+
+    public async delete(path: string, config?: AxiosRequestConfig) {
+      return this._delete(path, this._putAccessTokenHeader(config))
     }
 }
