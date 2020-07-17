@@ -1,7 +1,7 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import { AbstractCommand } from '../share/abstract.command'
-import { APIClientService } from '../share/api/api.service'
+import {AbstractCommand} from '../share/abstract.command'
+import {APIClientService} from '../share/api/api.service'
 
 export default class List extends AbstractCommand {
   static description = 'Domain lists command'
@@ -10,6 +10,7 @@ export default class List extends AbstractCommand {
     'Simply usage',
     '$ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
   ]
+
   static flags = {
     version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
@@ -44,8 +45,8 @@ export default class List extends AbstractCommand {
       const domains = await clientWithAuth.get(`/latest/sites/${siteId}/domains`)
       this.log(JSON.stringify(domains.map((domainDetail: {
         attached_project?: {
-          notification_emails?: object
-        }
+          notification_emails?: object;
+        };
       }) => {
         if (domainDetail && domainDetail.attached_project) {
           delete domainDetail.attached_project.notification_emails
