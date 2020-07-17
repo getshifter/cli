@@ -27,6 +27,8 @@
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",
     "globby": "^10",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "ts-node": "^8",
     "typescript": "^3.3"
   },
@@ -51,6 +53,12 @@
     "plugins": [
       "@oclif/plugin-help"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint --fix",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "publishConfig": {
     "access": "public"
