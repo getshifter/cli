@@ -30,6 +30,7 @@ USAGE
 <!-- commands -->
 * [`shifter-domain add`](#shifter-domain-add)
 * [`shifter-domain attach`](#shifter-domain-attach)
+* [`shifter-domain detach [FILE]`](#shifter-domain-detach-file)
 * [`shifter-domain get`](#shifter-domain-get)
 * [`shifter-domain get-verification-code`](#shifter-domain-get-verification-code)
 * [`shifter-domain help [COMMAND]`](#shifter-domain-help-command)
@@ -88,6 +89,22 @@ EXAMPLES
 ```
 
 _See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/attach.ts)_
+
+## `shifter-domain detach [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ shifter-domain detach [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
 
 ## `shifter-domain get`
 
