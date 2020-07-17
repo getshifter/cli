@@ -1,7 +1,7 @@
-import { flags} from '@oclif/command'
+import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import { AbstractCommand } from '../share/abstract.command'
-import { APIClientService } from '../share/api/api.service'
+import {AbstractCommand} from '../share/abstract.command'
+import {APIClientService} from '../share/api/api.service'
 
 export default class Add extends AbstractCommand {
   static description = 'Domain verification code command'
@@ -33,7 +33,7 @@ export default class Add extends AbstractCommand {
     }),
     domain: flags.string({
       char: 'D',
-      description: 'target domain name (eg. example.com)'
+      description: 'target domain name (eg. example.com)',
     }),
     'site-id': flags.string({
       char: 'S',
@@ -52,7 +52,7 @@ export default class Add extends AbstractCommand {
       const domain = flags.domain || await cli.prompt('Target domain')
       const domainObj = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
       if (!domainObj) throw new Error(`No such domain ${domain}`)
-      
+
       const validationDetail = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}/validation`)
       this.log(JSON.stringify(validationDetail, null, 2))
     } catch (error) {
