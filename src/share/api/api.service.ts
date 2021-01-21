@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosError} from 'axios'
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse} from 'axios'
 /**
  * GET Shifter API endpoint
  * @param env
@@ -30,15 +30,42 @@ export class APIClientService {
       this.debugMode = debugMode
     }
 
+    protected _recordAxiosRequest(url: string, path: string, config?: AxiosRequestConfig, body?: object): void {
+      if (!this.debugMode) return
+      const request = Object.assign({}, {
+        url, path, body,
+      })
+      console.log({
+        request,
+      })
+    }
+
+    protected _recordAxiosResponse<Response = any>(result: AxiosResponse<Response>): void {
+      if (!this.debugMode) return
+      const _target = (() => {
+        if (typeof result.data !== 'object') {
+          return result.data
+        }
+        const data = Object.assign({}, result.data) as any
+        Object.keys(data).forEach(key => {
+          if (/Token/.test(key) && data[key]) data[key] = '=== SECRET ==='
+        })
+        return data
+      })()
+      console.log({
+        result: _target,
+      })
+    }
+
     public async post(path: string, body?: object, config?: AxiosRequestConfig) {
       return this._post(path, body, config)
     }
 
     protected async _post(path: string, body?: object, config?: AxiosRequestConfig) {
       const url = pathJoin(this.endpoint, path)
-      if (this.debugMode) console.log({url, path, body, config})
+      this._recordAxiosRequest(url, path, config, body)
       const result = await axios.post(url, body, config)
-      if (this.debugMode) console.log({result})
+      this._recordAxiosResponse(result)
       return result.data
     }
 
@@ -48,9 +75,9 @@ export class APIClientService {
 
     protected async _get(path: string, config?: AxiosRequestConfig) {
       const url = pathJoin(this.endpoint, path)
-      if (this.debugMode) console.log({url, path, config})
+      this._recordAxiosRequest(url, path, config)
       const result = await axios.get(url, config)
-      if (this.debugMode) console.log({result})
+      this._recordAxiosResponse(result)
       return result.data
     }
 
