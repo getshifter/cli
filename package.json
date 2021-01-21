@@ -14,7 +14,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cli-ux": "^5.4.9",
     "tslib": "^1"
   },
