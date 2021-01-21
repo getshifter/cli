@@ -87,9 +87,9 @@ export class APIClientService {
 
     protected async _delete(path: string, config?: AxiosRequestConfig) {
       const url = pathJoin(this.endpoint, path)
-      if (this.debugMode) console.log({url, path, config})
+      this._recordAxiosRequest(url, path, config)
       const result = await axios.delete(url, config)
-      if (this.debugMode) console.log({result})
+      this._recordAxiosResponse(result)
       return result.data
     }
 
