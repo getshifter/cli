@@ -14,5 +14,5 @@ export abstract class AbstractCommand extends Command {
     return new APIClientWithAuthService(accessToken, showVerbose, development)
   }
 
-  abstract async run(): Promise<void>
+  abstract run(): Promise<void>
 }
