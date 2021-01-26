@@ -34,7 +34,14 @@ export class APIClientService {
       if (!this.debugMode) return
       const request = Object.assign({}, {
         url, path, body,
-      })
+      }) as any
+      if (request.body && Object.keys(request.body).length > 0) {
+        Object.keys(request.body).forEach(key => {
+          if (!request.body[key]) return
+          if (/Token/.test(key) && request.body[key]) request.body[key] = '=== SECRET ==='
+          if (/password/.test(key.toLocaleLowerCase()) && request.body[key]) request.body[key] = '=== SECRET ==='
+        })
+      }
       console.log({
         request,
       })
@@ -49,6 +56,7 @@ export class APIClientService {
         const data = Object.assign({}, result.data) as any
         Object.keys(data).forEach(key => {
           if (/Token/.test(key) && data[key]) data[key] = '=== SECRET ==='
+          if (/password/.test(key.toLocaleLowerCase()) && data[key]) data[key] = '=== SECRET ==='
         })
         return data
       })()
@@ -63,7 +71,7 @@ export class APIClientService {
 
     protected async _post(path: string, body?: object, config?: AxiosRequestConfig) {
       const url = pathJoin(this.endpoint, path)
-      this._recordAxiosRequest(url, path, config, body)
+      this._recordAxiosRequest(url, path, config, {...body})
       const result = await axios.post(url, body, config)
       this._recordAxiosResponse(result)
       return result.data
