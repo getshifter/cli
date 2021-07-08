@@ -32,19 +32,19 @@ USAGE
 * [`shifter attach`](#shifter-attach)
 * [`shifter delete`](#shifter-delete)
 * [`shifter detach`](#shifter-detach)
-* [`shifter domain:list [FILE]`](#shifter-domainlist-file)
+* [`shifter domain:add [FILE]`](#shifter-domainadd-file)
+* [`shifter domain:list`](#shifter-domainlist)
 * [`shifter get`](#shifter-get)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
-* [`shifter list`](#shifter-list)
 
-## `shifter add`
+## `shifter domain:add`
 
 Domain registration command
 
 ```
 USAGE
-  $ shifter add
+  $ shifter domain:add
 
 OPTIONS
   -D, --domain=domain      target domain name (eg. example.com)
@@ -56,7 +56,7 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simple usage
+  Simply usage
   $ shifter add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
@@ -139,18 +139,41 @@ EXAMPLE
 
 _See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
 
-## `shifter domain:list [FILE]`
+## `shifter domain:add [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter domain:list [FILE]
+  $ shifter domain:add [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
+```
+
+_See code: [src/commands/domain/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/add.ts)_
+
+## `shifter domain:list`
+
+Domain lists command
+
+```
+USAGE
+  $ shifter domain:list
+
+OPTIONS
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
@@ -220,27 +243,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
-
-## `shifter list`
-
-Domain lists command
-
-```
-USAGE
-  $ shifter list
-
-OPTIONS
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --verbose                Show verbose
-
-EXAMPLES
-  Simple usage
-  $ shifter list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
-```
-
-_See code: [src/commands/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/list.ts)_
 <!-- commandsstop -->
