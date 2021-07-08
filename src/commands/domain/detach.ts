@@ -1,13 +1,13 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {APIClientService} from '../share/api/api.service'
-import {AbstractCommand} from '../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
 
 export default class Detach extends AbstractCommand {
   static description = 'Domain detach command'
 
   static examples = [
-    '$ shifter detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
+    '$ shifter domain:detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
   ]
 
   static flags = {

@@ -28,46 +28,22 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`shifter domain:detach`](#shifter-domaindetach)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
-* [`shifter detach`](#shifter-detach)
 * [`shifter domain:delete`](#shifter-domaindelete)
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter get`](#shifter-get)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 
-## `shifter domain:delete`
-
-Domain delete command
-
-```
-USAGE
-  $ shifter domain:delete
-
-OPTIONS
-  -D, --domain=domain      Target domain name (eg. www.example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --verbose                Show verbose
-
-EXAMPLES
-  Simple usage
-  $ shifter domain:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
-```
-
-_See code: [src/commands/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/delete.ts)_
-
-## `shifter detach`
+## `shifter domain:detach`
 
 Domain detach command
 
 ```
 USAGE
-  $ shifter detach
+  $ shifter domain:detach
 
 OPTIONS
   -D, --domain=domain      Target domain name (eg. www.example.com)
@@ -80,7 +56,7 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLE
-  $ shifter detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
+  $ shifter domain:detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 ```
 
 _See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
@@ -137,6 +113,32 @@ EXAMPLES
 ```
 
 _See code: [src/commands/domain/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/attach.ts)_
+
+## `shifter domain:delete`
+
+Domain delete command
+
+```
+USAGE
+  $ shifter domain:delete
+
+OPTIONS
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter domain:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
+  test.example.com
+```
+
+_See code: [src/commands/domain/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/delete.ts)__
+
 
 ## `shifter domain:list`
 
