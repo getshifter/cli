@@ -7,7 +7,7 @@ export default class Delete extends AbstractCommand {
   static description = 'Domain delete command'
 
   static examples = [
-    'Simply usage',
+    'Simple usage',
     '$ shifter delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
   ]
 

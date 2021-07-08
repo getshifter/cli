@@ -19,7 +19,7 @@ $ npm install -g @shifter/domain-cli
 $ shifter COMMAND
 running command...
 $ shifter (-v|--version|version)
-@shifter/domain-cli/0.1.2 darwin-x64 node-v12.9.1
+@shifter/domain-cli/0.1.2 darwin-x64 node-v14.16.1
 $ shifter --help [COMMAND]
 USAGE
   $ shifter COMMAND
@@ -30,8 +30,9 @@ USAGE
 <!-- commands -->
 * [`shifter add`](#shifter-add)
 * [`shifter attach`](#shifter-attach)
-* [`shifter delete [FILE]`](#shifter-delete-file)
+* [`shifter delete`](#shifter-delete)
 * [`shifter detach`](#shifter-detach)
+* [`shifter domain:list [FILE]`](#shifter-domainlist-file)
 * [`shifter get`](#shifter-get)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
@@ -55,7 +56,7 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simply usage
+  Simple usage
   $ shifter add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
@@ -80,29 +81,36 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simply usage
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
-  test.example.com
+  Simple usage
+  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 
     Use own CDN (Netlify or own CloudFront etc...)
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
-  test.example.com --no-shifter-cdn
+  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
+  --no-shifter-cdn
 ```
 
 _See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/attach.ts)_
 
-## `shifter delete [FILE]`
+## `shifter delete`
 
-describe the command here
+Domain delete command
 
 ```
 USAGE
-  $ shifter delete [FILE]
+  $ shifter delete
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 ```
 
 _See code: [src/commands/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/delete.ts)_
@@ -126,11 +134,26 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLE
-  $ shifter detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
-  test.example.com
+  $ shifter detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 ```
 
 _See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
+
+## `shifter domain:list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ shifter domain:list [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
 
 ## `shifter get`
 
@@ -150,7 +173,7 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simply usage
+  Simple usage
   $ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
@@ -174,9 +197,9 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simply usage
-  $ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx 
-  --domain test.example.com
+  Simple usage
+  $ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
+  test.example.com
 ```
 
 _See code: [src/commands/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/get-verification-code.ts)_
@@ -196,7 +219,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.1.0/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
 ## `shifter list`
 
@@ -215,7 +238,7 @@ OPTIONS
   --verbose                Show verbose
 
 EXAMPLES
-  Simply usage
+  Simple usage
   $ shifter list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 

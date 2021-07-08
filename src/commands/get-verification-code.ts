@@ -7,7 +7,7 @@ export default class Add extends AbstractCommand {
   static description = 'Domain verification code command'
 
   static examples = [
-    'Simply usage',
+    'Simple usage',
     '$ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
 

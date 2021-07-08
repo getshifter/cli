@@ -7,7 +7,7 @@ export default class Attach extends AbstractCommand {
   static description = 'Domain attach command'
 
   static examples = [
-    'Simply usage',
+    'Simple usage',
     '$ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
     '\n Use own CDN (Netlify or own CloudFront etc...)',
     '$ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com --no-shifter-cdn',

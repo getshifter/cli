@@ -7,7 +7,7 @@ export default class Get extends AbstractCommand {
   static description = 'Domain get command'
 
   static examples = [
-    'Simply usage',
+    'Simple usage',
     '$ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
 
