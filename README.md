@@ -28,47 +28,22 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`shifter add`](#shifter-add)
-* [`shifter attach`](#shifter-attach)
+* [`shifter domain:add`](#shifter-domainadd)
+* [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter delete`](#shifter-delete)
 * [`shifter detach`](#shifter-detach)
-* [`shifter domain:add [FILE]`](#shifter-domainadd-file)
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter get`](#shifter-get)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 
-## `shifter domain:add`
-
-Domain registration command
-
-```
-USAGE
-  $ shifter domain:add
-
-OPTIONS
-  -D, --domain=domain      target domain name (eg. example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --verbose                Show verbose
-
-EXAMPLES
-  Simply usage
-  $ shifter add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
-```
-
-_See code: [src/commands/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/add.ts)_
-
-## `shifter attach`
+## `shifter domain:attach`
 
 Domain attach command
 
 ```
 USAGE
-  $ shifter attach
+  $ shifter domain:attach
 
 OPTIONS
   -D, --domain=domain      Target domain name (eg. www.example.com)
@@ -82,10 +57,10 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
+  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 
     Use own CDN (Netlify or own CloudFront etc...)
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
+  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
   --no-shifter-cdn
 ```
 
@@ -139,18 +114,26 @@ EXAMPLE
 
 _See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
 
-## `shifter domain:add [FILE]`
+## `shifter domain:add`
 
-describe the command here
+Domain registration command
 
 ```
 USAGE
-  $ shifter domain:add [FILE]
+  $ shifter domain:add
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter domain:add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
 _See code: [src/commands/domain/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/add.ts)_
