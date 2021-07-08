@@ -30,49 +30,20 @@ USAGE
 <!-- commands -->
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
-* [`shifter delete`](#shifter-delete)
 * [`shifter detach`](#shifter-detach)
+* [`shifter domain:delete`](#shifter-domaindelete)
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter get`](#shifter-get)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 
-## `shifter domain:attach`
-
-Domain attach command
-
-```
-USAGE
-  $ shifter domain:attach
-
-OPTIONS
-  -D, --domain=domain      Target domain name (eg. www.example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
-  --verbose                Show verbose
-
-EXAMPLES
-  Simple usage
-  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
-
-    Use own CDN (Netlify or own CloudFront etc...)
-  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
-  --no-shifter-cdn
-```
-
-_See code: [src/commands/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/attach.ts)_
-
-## `shifter delete`
+## `shifter domain:delete`
 
 Domain delete command
 
 ```
 USAGE
-  $ shifter delete
+  $ shifter domain:delete
 
 OPTIONS
   -D, --domain=domain      Target domain name (eg. www.example.com)
@@ -85,7 +56,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
+  $ shifter domain:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 ```
 
 _See code: [src/commands/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/delete.ts)_
@@ -137,6 +108,35 @@ EXAMPLES
 ```
 
 _See code: [src/commands/domain/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/add.ts)_
+
+## `shifter domain:attach`
+
+Domain attach command
+
+```
+USAGE
+  $ shifter domain:attach
+
+OPTIONS
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
+
+    Use own CDN (Netlify or own CloudFront etc...)
+  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
+  --no-shifter-cdn
+```
+
+_See code: [src/commands/domain/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/attach.ts)_
 
 ## `shifter domain:list`
 

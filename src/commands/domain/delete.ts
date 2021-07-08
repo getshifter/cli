@@ -1,14 +1,14 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {APIClientService} from '../share/api/api.service'
-import {AbstractCommand} from '../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
 
 export default class Delete extends AbstractCommand {
   static description = 'Domain delete command'
 
   static examples = [
     'Simple usage',
-    '$ shifter delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
+    '$ shifter domain:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
   ]
 
   static flags = {
