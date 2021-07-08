@@ -4,7 +4,7 @@
   "version": "0.1.2",
   "author": "Shifter",
   "bin": {
-    "shifter-domain": "./bin/run",
+    "shifter": "./bin/run",
     "s-domain": "./bin/run",
     "shifter-d": "./bin/run",
     "sd": "./bin/run"
@@ -50,7 +50,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "shifter-domain",
+    "bin": "shifter",
     "plugins": [
       "@oclif/plugin-help"
     ]

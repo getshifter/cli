@@ -7,7 +7,7 @@ export default class Detach extends AbstractCommand {
   static description = 'Domain detach command'
 
   static examples = [
-    '$ shifter-domain detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
+    '$ shifter detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
   ]
 
   static flags = {

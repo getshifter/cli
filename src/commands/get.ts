@@ -8,7 +8,7 @@ export default class Get extends AbstractCommand {
 
   static examples = [
     'Simply usage',
-    '$ shifter-domain get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
+    '$ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
 
   static flags = {

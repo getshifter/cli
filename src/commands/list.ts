@@ -8,7 +8,7 @@ export default class List extends AbstractCommand {
 
   static examples = [
     'Simply usage',
-    '$ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
+    '$ shifter list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
   ]
 
   static flags = {
