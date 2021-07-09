@@ -28,38 +28,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`shifter domain:detach`](#shifter-domaindetach)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter domain:delete`](#shifter-domaindelete)
+* [`shifter domain:detach`](#shifter-domaindetach)
 * [`shifter domain:list`](#shifter-domainlist)
-* [`shifter get`](#shifter-get)
+* [`shifter domain:get`](#shifter-domainget)
 * [`shifter get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
-
-## `shifter domain:detach`
-
-Domain detach command
-
-```
-USAGE
-  $ shifter domain:detach
-
-OPTIONS
-  -D, --domain=domain      Target domain name (eg. www.example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
-  --verbose                Show verbose
-
-EXAMPLE
-  $ shifter domain:detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
-```
-
-_See code: [src/commands/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/detach.ts)_
 
 ## `shifter domain:add`
 
@@ -137,7 +113,32 @@ EXAMPLES
   test.example.com
 ```
 
-_See code: [src/commands/domain/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/delete.ts)__
+_See code: [src/commands/domain/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/delete.ts)_
+
+## `shifter domain:detach`
+
+Domain detach command
+
+```
+USAGE
+  $ shifter domain:detach
+
+OPTIONS
+  -D, --domain=domain      Target domain name (eg. www.example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --no-shifter-cdn         If you using another CDN like Netlify or own CloudFront etc... Please set the flag.
+  --verbose                Show verbose
+
+EXAMPLE
+  $ shifter domain:detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain 
+  test.example.com
+```
+
+_See code: [src/commands/domain/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/detach.ts)_
 
 
 ## `shifter domain:list`
@@ -163,13 +164,13 @@ EXAMPLES
 
 _See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
 
-## `shifter get`
+## `shifter domain:get`
 
 Domain get command
 
 ```
 USAGE
-  $ shifter get
+  $ shifter domain:get
 
 OPTIONS
   -D, --domain=domain      target domain name (eg. example.com)
@@ -182,7 +183,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
+  $ shifter domain:get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
 _See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/get.ts)_

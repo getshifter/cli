@@ -1,7 +1,7 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {AbstractCommand} from '../share/abstract.command'
-import {APIClientService} from '../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
 
 export default class Get extends AbstractCommand {
   static description = 'Domain get command'
