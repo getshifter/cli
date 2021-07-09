@@ -32,9 +32,9 @@ USAGE
 * [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter domain:delete`](#shifter-domaindelete)
 * [`shifter domain:detach`](#shifter-domaindetach)
-* [`shifter domain:list`](#shifter-domainlist)
 * [`shifter domain:get`](#shifter-domainget)
-* [`shifter get-verification-code`](#shifter-get-verification-code)
+* [`shifter domain:list`](#shifter-domainlist)
+* [`shifter domain:get-verification-code`](#shifter-get-verification-code)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 
 ## `shifter domain:add`
@@ -140,6 +140,30 @@ EXAMPLE
 
 _See code: [src/commands/domain/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/detach.ts)_
 
+## `shifter domain:get`
+
+Domain get command
+
+```
+USAGE
+  $ shifter domain:get
+
+OPTIONS
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
+```
+
+_See code: [src/commands/domain/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get.ts)_
+
 
 ## `shifter domain:list`
 
@@ -164,37 +188,13 @@ EXAMPLES
 
 _See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
 
-## `shifter domain:get`
-
-Domain get command
-
-```
-USAGE
-  $ shifter domain:get
-
-OPTIONS
-  -D, --domain=domain      target domain name (eg. example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --verbose                Show verbose
-
-EXAMPLES
-  Simple usage
-  $ shifter domain:get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
-```
-
-_See code: [src/commands/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/get.ts)_
-
-## `shifter get-verification-code`
+## `shifter domain:get-verification-code`
 
 Domain verification code command
 
 ```
 USAGE
-  $ shifter get-verification-code
+  $ shifter domain:get-verification-code
 
 OPTIONS
   -D, --domain=domain      target domain name (eg. example.com)
@@ -207,7 +207,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
+  $ shifter domain:get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
   test.example.com
 ```
 
