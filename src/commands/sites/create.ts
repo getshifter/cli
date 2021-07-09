@@ -1,25 +1,68 @@
-import {Command, flags} from '@oclif/command'
+import {flags} from '@oclif/command'
+import cli from 'cli-ux'
+import {AbstractCommand} from '../../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
 
-export default class SitesCreate extends Command {
-  static description = 'describe the command here'
+export default class SitesCreateCommand extends AbstractCommand {
+  static description = 'Create a new site'
+
+  static examples = [
+    'Simple usage',
+    '$ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site" --domain test.example.com',
+  ];
 
   static flags = {
+    version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
-
-  static args = [{name: 'file'}]
+    development: flags.boolean({
+      description: 'Work as development mode (Only for Shifter developer team)',
+      default: false,
+    }),
+    verbose: flags.boolean({
+      description: 'Show verbose',
+      default: false,
+    }),
+    username: flags.string({
+      char: 'U',
+      description: 'Shifter username',
+    }),
+    password: flags.string({
+      hidden: true,
+      char: 'P',
+      description: 'Shifter password',
+    }),
+    'site-name': flags.string({
+      char: 'S',
+      description: 'Shifter site name',
+    }),
+    'plan-id': flags.string({
+      description: 'Shifter plan id',
+    }),
+  };
 
   async run() {
-    const {args, flags} = this.parse(SitesCreate)
-
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /Users/danielolson/dev/domain-cli/src/commands/sites/create.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+    const {flags} = this.parse(SitesCreateCommand)
+    try {
+      const clientWithAuth = await this.setupApiClient(
+        flags.username,
+        flags.password,
+        flags.verbose,
+        flags.development,
+      )
+      const siteName = flags['site-name'] || (await cli.prompt('Site name'))
+      const planId = flags['plan-id'] || 'free'
+      await clientWithAuth.post('/latest/sites', {
+        site_name: siteName,
+        plan_id: planId,
+      })
+    } catch (error) {
+      if (APIClientService.isAxiosError(error) && error.response) {
+        const response = error.response
+        this.error(
+          `${response.status} - ${response.statusText}\n${response.data.message}`,
+        )
+      }
+      this.error(error)
     }
   }
 }

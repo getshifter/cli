@@ -36,7 +36,8 @@ USAGE
 * [`shifter domain:get-verification-code`](#shifter-domainget-verification-code)
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter help [COMMAND]`](#shifter-help-command)
-* [`shifter sites:create [FILE]`](#shifter-sitescreate-file)
+* [`shifter sites:create`](#shifter-sitescreate)
+* [`shifter sites:describe [FILE]`](#shifter-sitesdescribe-file)
 * [`shifter sites:list`](#shifter-siteslist)
 
 ## `shifter domain:add`
@@ -231,13 +232,36 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `shifter sites:create [FILE]`
+## `shifter sites:create`
+
+Create a new site
+
+```
+USAGE
+  $ shifter sites:create
+
+OPTIONS
+  -S, --site-name=site-name  Shifter site name
+  -U, --username=username    Shifter username
+  -h, --help                 show CLI help
+  -v, --version              show CLI version
+  --development              Work as development mode (Only for Shifter developer team)
+  --verbose                  Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site" --domain test.example.com
+```
+
+_See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
+
+## `shifter sites:describe [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter sites:create [FILE]
+  $ shifter sites:describe [FILE]
 
 OPTIONS
   -f, --force
@@ -245,7 +269,7 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
+_See code: [src/commands/sites/describe.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/describe.ts)_
 
 ## `shifter sites:list`
 

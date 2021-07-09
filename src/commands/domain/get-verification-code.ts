@@ -3,12 +3,12 @@ import cli from 'cli-ux'
 import {AbstractCommand} from '../../share/abstract.command'
 import {APIClientService} from '../../share/api/api.service'
 
-export default class Add extends AbstractCommand {
+export default class DomainAddCommand extends AbstractCommand {
   static description = 'Domain verification code command'
 
   static examples = [
     'Simple usage',
-    '$ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
+    '$ shifter domain:get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
 
   static flags = {
@@ -42,7 +42,7 @@ export default class Add extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(Add)
+    const {flags} = this.parse(DomainAddCommand)
     try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
       const siteId = flags['site-id'] || await cli.prompt('Site id')
