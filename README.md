@@ -37,6 +37,7 @@ USAGE
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 * [`shifter sites:create`](#shifter-sitescreate)
+* [`shifter sites:delete`](#shifter-sitesdelete)
 * [`shifter sites:describe`](#shifter-sitesdescribe)
 * [`shifter sites:list`](#shifter-siteslist)
 
@@ -186,8 +187,8 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
-  test.example.com
+  $ shifter domain:get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx 
+  --domain test.example.com
 ```
 
 _See code: [src/commands/domain/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get-verification-code.ts)_
@@ -246,6 +247,7 @@ OPTIONS
   -h, --help                 show CLI help
   -v, --version              show CLI version
   --development              Work as development mode (Only for Shifter developer team)
+  --plan-id=plan-id          Shifter plan id
   --verbose                  Show verbose
 
 EXAMPLES
@@ -255,18 +257,41 @@ EXAMPLES
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
 
-## `shifter sites:describe`
+## `shifter sites:delete`
 
 describe the command here
+
+```
+USAGE
+  $ shifter sites:delete
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/sites/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/delete.ts)_
+
+## `shifter sites:describe`
+
+Sites describe command
 
 ```
 USAGE
   $ shifter sites:describe
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter sites:describe --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/sites/describe.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/describe.ts)_
