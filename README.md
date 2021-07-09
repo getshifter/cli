@@ -28,7 +28,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`shifter help [COMMAND]`](#shifter-help-command)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter domain:delete`](#shifter-domaindelete)
@@ -36,6 +35,8 @@ USAGE
 * [`shifter domain:get`](#shifter-domainget)
 * [`shifter domain:get-verification-code`](#shifter-domainget-verification-code)
 * [`shifter domain:list`](#shifter-domainlist)
+* [`shifter help [COMMAND]`](#shifter-help-command)
+* [`shifter sites:create [FILE]`](#shifter-sitescreate-file)
 * [`shifter sites:list`](#shifter-siteslist)
 
 ## `shifter domain:add`
@@ -230,18 +231,40 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `shifter sites:list`
+## `shifter sites:create [FILE]`
 
 describe the command here
+
+```
+USAGE
+  $ shifter sites:create [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
+
+## `shifter sites:list`
+
+Sites lists command
 
 ```
 USAGE
   $ shifter sites:list
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter sites:list --username USERNAME --password PASSWORD
 ```
 
 _See code: [src/commands/sites/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/list.ts)_

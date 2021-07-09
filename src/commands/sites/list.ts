@@ -2,7 +2,7 @@ import {flags} from '@oclif/command'
 import {AbstractCommand} from '../../share/abstract.command'
 import {APIClientService} from '../../share/api/api.service'
 
-export default class DomainList extends AbstractCommand {
+export default class SitesList extends AbstractCommand {
   static description = 'Sites lists command';
 
   static examples = [
@@ -33,7 +33,7 @@ export default class DomainList extends AbstractCommand {
   };
 
   async run() {
-    const {flags} = this.parse(DomainList)
+    const {flags} = this.parse(SitesList)
     try {
       const clientWithAuth = await this.setupApiClient(
         flags.username,
