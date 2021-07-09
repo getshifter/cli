@@ -28,6 +28,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`shifter artifacts:list`](#shifter-artifactslist)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter domain:delete`](#shifter-domaindelete)
@@ -40,6 +41,25 @@ USAGE
 * [`shifter sites:delete`](#shifter-sitesdelete)
 * [`shifter sites:describe`](#shifter-sitesdescribe)
 * [`shifter sites:list`](#shifter-siteslist)
+
+## `shifter artifacts:list`
+
+describe the command here
+
+```
+USAGE
+  $ shifter artifacts:list
+
+OPTIONS
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+```
+
+_See code: [src/commands/artifacts/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/list.ts)_
 
 ## `shifter domain:add`
 
@@ -211,7 +231,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
+  $ shifter domain:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
@@ -252,23 +272,30 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site"
+  $ shifter sites:create --username USERNAME --password PASSWORD --site-name "Name of site"
 ```
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
 
 ## `shifter sites:delete`
 
-describe the command here
+Sites delete command
 
 ```
 USAGE
   $ shifter sites:delete
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter sites:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/sites/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/delete.ts)_
