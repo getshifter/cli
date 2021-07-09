@@ -37,7 +37,7 @@ USAGE
 * [`shifter domain:list`](#shifter-domainlist)
 * [`shifter help [COMMAND]`](#shifter-help-command)
 * [`shifter sites:create`](#shifter-sitescreate)
-* [`shifter sites:describe [FILE]`](#shifter-sitesdescribe-file)
+* [`shifter sites:describe`](#shifter-sitesdescribe)
 * [`shifter sites:list`](#shifter-siteslist)
 
 ## `shifter domain:add`
@@ -255,13 +255,13 @@ EXAMPLES
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
 
-## `shifter sites:describe [FILE]`
+## `shifter sites:describe`
 
 describe the command here
 
 ```
 USAGE
-  $ shifter sites:describe [FILE]
+  $ shifter sites:describe
 
 OPTIONS
   -f, --force
