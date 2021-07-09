@@ -28,14 +28,15 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`shifter help [COMMAND]`](#shifter-help-command)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
 * [`shifter domain:delete`](#shifter-domaindelete)
 * [`shifter domain:detach`](#shifter-domaindetach)
 * [`shifter domain:get`](#shifter-domainget)
+* [`shifter domain:get-verification-code`](#shifter-domainget-verification-code)
 * [`shifter domain:list`](#shifter-domainlist)
-* [`shifter domain:get-verification-code`](#shifter-get-verification-code)
-* [`shifter help [COMMAND]`](#shifter-help-command)
+* [`shifter sites:list`](#shifter-siteslist)
 
 ## `shifter domain:add`
 
@@ -164,6 +165,30 @@ EXAMPLES
 
 _See code: [src/commands/domain/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get.ts)_
 
+## `shifter domain:get-verification-code`
+
+Domain verification code command
+
+```
+USAGE
+  $ shifter domain:get-verification-code
+
+OPTIONS
+  -D, --domain=domain      target domain name (eg. example.com)
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
+  test.example.com
+```
+
+_See code: [src/commands/domain/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get-verification-code.ts)_
 
 ## `shifter domain:list`
 
@@ -188,31 +213,6 @@ EXAMPLES
 
 _See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
 
-## `shifter domain:get-verification-code`
-
-Domain verification code command
-
-```
-USAGE
-  $ shifter domain:get-verification-code
-
-OPTIONS
-  -D, --domain=domain      target domain name (eg. example.com)
-  -S, --site-id=site-id    Shifter site id
-  -U, --username=username  Shifter username
-  -h, --help               show CLI help
-  -v, --version            show CLI version
-  --development            Work as development mode (Only for Shifter developer team)
-  --verbose                Show verbose
-
-EXAMPLES
-  Simple usage
-  $ shifter domain:get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain 
-  test.example.com
-```
-
-_See code: [src/commands/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/get-verification-code.ts)_
-
 ## `shifter help [COMMAND]`
 
 display help for shifter
@@ -229,4 +229,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `shifter sites:list`
+
+describe the command here
+
+```
+USAGE
+  $ shifter sites:list
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/sites/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/list.ts)_
 <!-- commandsstop -->
