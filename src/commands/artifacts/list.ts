@@ -3,12 +3,12 @@ import cli from 'cli-ux'
 import {AbstractCommand} from '../../share/abstract.command'
 import {APIClientService} from '../../share/api/api.service'
 
-export default class DomainListCommand extends AbstractCommand {
-  static description = 'Domain lists command';
+export default class ArtifactsListCommand extends AbstractCommand {
+  static description = 'Artifacts list command';
 
   static examples = [
     'Simple usage',
-    '$ shifter domain:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
+    '$ shifter artifacts:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
   ];
 
   static flags = {
@@ -38,7 +38,7 @@ export default class DomainListCommand extends AbstractCommand {
   };
 
   async run() {
-    const {flags} = this.parse(DomainListCommand)
+    const {flags} = this.parse(ArtifactsListCommand)
     try {
       const clientWithAuth = await this.setupApiClient(
         flags.username,
@@ -47,23 +47,12 @@ export default class DomainListCommand extends AbstractCommand {
         flags.development,
       )
       const siteId = flags['site-id'] || (await cli.prompt('Site id'))
-      const domains = await clientWithAuth.get(
-        `/latest/sites/${siteId}/domains`,
+      const artifacts = await clientWithAuth.get(
+        `/latest/sites/${siteId}/artifacts`,
       )
       this.log(
         JSON.stringify(
-          domains.map(
-            (domainDetail: {
-              attached_project?: {
-                notification_emails?: object;
-              };
-            }) => {
-              if (domainDetail && domainDetail.attached_project) {
-                delete domainDetail.attached_project.notification_emails
-              }
-              return domainDetail
-            },
-          ),
+          artifacts,
           null,
           2,
         ),
