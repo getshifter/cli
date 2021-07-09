@@ -8,7 +8,7 @@ export default class SitesCreateCommand extends AbstractCommand {
 
   static examples = [
     'Simple usage',
-    '$ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site" --domain test.example.com',
+    '$ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site"',
   ];
 
   static flags = {
