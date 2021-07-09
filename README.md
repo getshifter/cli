@@ -252,7 +252,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site" --domain test.example.com
+  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site"
 ```
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
