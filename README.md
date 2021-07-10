@@ -28,6 +28,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`shifter artifacts:build`](#shifter-artifactsbuild)
 * [`shifter artifacts:list`](#shifter-artifactslist)
 * [`shifter domain:add`](#shifter-domainadd)
 * [`shifter domain:attach`](#shifter-domainattach)
@@ -42,9 +43,28 @@ USAGE
 * [`shifter sites:describe`](#shifter-sitesdescribe)
 * [`shifter sites:list`](#shifter-siteslist)
 
-## `shifter artifacts:list`
+## `shifter artifacts:build`
 
 describe the command here
+
+```
+USAGE
+  $ shifter artifacts:build
+
+OPTIONS
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+```
+
+_See code: [src/commands/artifacts/build.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/build.ts)_
+
+## `shifter artifacts:list`
+
+Artifacts list command
 
 ```
 USAGE
@@ -57,6 +77,10 @@ OPTIONS
   -v, --version            show CLI version
   --development            Work as development mode (Only for Shifter developer team)
   --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter artifacts:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/artifacts/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/list.ts)_
@@ -272,7 +296,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter sites:create --username USERNAME --password PASSWORD --site-name "Name of site"
+  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site"
 ```
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
