@@ -43,6 +43,7 @@ USAGE
 * [`shifter sites:delete`](#shifter-sitesdelete)
 * [`shifter sites:describe`](#shifter-sitesdescribe)
 * [`shifter sites:list`](#shifter-siteslist)
+* [`shifter sites:start`](#shifter-sitesstart)
 
 ## `shifter artifacts:build`
 
@@ -92,7 +93,7 @@ _See code: [src/commands/artifacts/list.ts](https://github.com/getshifter/domain
 
 ## `shifter artifacts:status`
 
-describe the command here
+Artifacts status command
 
 ```
 USAGE
@@ -105,6 +106,10 @@ OPTIONS
   -v, --version            show CLI version
   --development            Work as development mode (Only for Shifter developer team)
   --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter artifacts:status --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
 _See code: [src/commands/artifacts/status.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/status.ts)_
@@ -320,7 +325,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter site:create --username USERNAME --password PASSWORD --site-name "Name of site"
+  $ shifter sites:create --username USERNAME --password PASSWORD --site-name "Name of site"
 ```
 
 _See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
@@ -392,4 +397,23 @@ EXAMPLES
 ```
 
 _See code: [src/commands/sites/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/list.ts)_
+
+## `shifter sites:start`
+
+describe the command here
+
+```
+USAGE
+  $ shifter sites:start --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
+
+OPTIONS
+  -S, --site-id=site-id    Shifter site id
+  -U, --username=username  Shifter username
+  -h, --help               show CLI help
+  -v, --version            show CLI version
+  --development            Work as development mode (Only for Shifter developer team)
+  --verbose                Show verbose
+```
+
+_See code: [src/commands/sites/start.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/start.ts)_
 <!-- commandsstop -->
