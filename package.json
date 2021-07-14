@@ -1,15 +1,12 @@
 {
-  "name": "@shifter/domain-cli",
-  "description": "Simple Shifter domain management cli",
+  "name": "@shifter/cli",
+  "description": "Simple Shifter management cli",
   "version": "0.1.2",
   "author": "Shifter",
   "bin": {
-    "shifter": "./bin/run",
-    "s-domain": "./bin/run",
-    "shifter-d": "./bin/run",
-    "sd": "./bin/run"
+    "shifter": "./bin/run"
   },
-  "bugs": "https://github.com/getshifter/domain-cli/issues",
+  "bugs": "https://github.com/getshifter/cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -42,7 +39,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/getshifter/domain-cli",
+  "homepage": "https://github.com/getshifter/cli",
   "keywords": [
     "oclif"
   ],
@@ -69,7 +66,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "getshifter/domain-cli",
+  "repository": "getshifter/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",

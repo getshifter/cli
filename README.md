@@ -1,12 +1,12 @@
-@shifter/domain-cli
+@shifter/cli
 ===================
 
-Simple Shifter domain management cli
+Simple Shifter management cli
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/@shifter/domain-cli.svg)](https://npmjs.org/package/@shifter/domain-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@shifter/domain-cli.svg)](https://npmjs.org/package/@shifter/domain-cli)
-[![License](https://img.shields.io/npm/l/@shifter/domain-cli.svg)](https://github.com/getshifter/domain-cli/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@shifter/cli.svg)](https://npmjs.org/package/@shifter/cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@shifter/cli.svg)](https://npmjs.org/package/@shifter/cli)
+[![License](https://img.shields.io/npm/l/@shifter/cli.svg)](https://github.com/getshifter/domain-cli/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -15,11 +15,11 @@ Simple Shifter domain management cli
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @shifter/domain-cli
+$ npm install -g @shifter/cli
 $ shifter COMMAND
 running command...
 $ shifter (-v|--version|version)
-@shifter/domain-cli/0.1.2 darwin-x64 node-v14.16.1
+@shifter/cli/0.1.2 darwin-x64 node-v14.17.1
 $ shifter --help [COMMAND]
 USAGE
   $ shifter COMMAND
@@ -66,7 +66,7 @@ EXAMPLES
   $ shifter artifacts:build --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/artifacts/build.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/build.ts)_
+_See code: [src/commands/artifacts/build.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/artifacts/build.ts)_
 
 ## `shifter artifacts:list`
 
@@ -89,7 +89,7 @@ EXAMPLES
   $ shifter artifacts:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/artifacts/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/list.ts)_
+_See code: [src/commands/artifacts/list.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/artifacts/list.ts)_
 
 ## `shifter artifacts:status`
 
@@ -112,7 +112,7 @@ EXAMPLES
   $ shifter artifacts:status --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/artifacts/status.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/artifacts/status.ts)_
+_See code: [src/commands/artifacts/status.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/artifacts/status.ts)_
 
 ## `shifter domain:add`
 
@@ -136,7 +136,7 @@ EXAMPLES
   $ shifter domain:add --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
-_See code: [src/commands/domain/add.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/add.ts)_
+_See code: [src/commands/domain/add.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/add.ts)_
 
 ## `shifter domain:attach`
 
@@ -165,7 +165,7 @@ EXAMPLES
   --no-shifter-cdn
 ```
 
-_See code: [src/commands/domain/attach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/attach.ts)_
+_See code: [src/commands/domain/attach.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/attach.ts)_
 
 ## `shifter domain:delete`
 
@@ -190,7 +190,7 @@ EXAMPLES
   test.example.com
 ```
 
-_See code: [src/commands/domain/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/delete.ts)_
+_See code: [src/commands/domain/delete.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/delete.ts)_
 
 ## `shifter domain:detach`
 
@@ -215,7 +215,7 @@ EXAMPLE
   test.example.com
 ```
 
-_See code: [src/commands/domain/detach.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/detach.ts)_
+_See code: [src/commands/domain/detach.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/detach.ts)_
 
 ## `shifter domain:get`
 
@@ -239,7 +239,7 @@ EXAMPLES
   $ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
-_See code: [src/commands/domain/get.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get.ts)_
+_See code: [src/commands/domain/get.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/get.ts)_
 
 ## `shifter domain:get-verification-code`
 
@@ -264,7 +264,7 @@ EXAMPLES
   --domain test.example.com
 ```
 
-_See code: [src/commands/domain/get-verification-code.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/get-verification-code.ts)_
+_See code: [src/commands/domain/get-verification-code.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/get-verification-code.ts)_
 
 ## `shifter domain:list`
 
@@ -287,7 +287,7 @@ EXAMPLES
   $ shifter domain:list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/domain/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/domain/list.ts)_
+_See code: [src/commands/domain/list.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/domain/list.ts)_
 
 ## `shifter help [COMMAND]`
 
@@ -328,7 +328,7 @@ EXAMPLES
   $ shifter sites:create --username USERNAME --password PASSWORD --site-name "Name of site"
 ```
 
-_See code: [src/commands/sites/create.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/create.ts)_
+_See code: [src/commands/sites/create.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/sites/create.ts)_
 
 ## `shifter sites:delete`
 
@@ -351,7 +351,7 @@ EXAMPLES
   $ shifter sites:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/sites/delete.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/delete.ts)_
+_See code: [src/commands/sites/delete.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/sites/delete.ts)_
 
 ## `shifter sites:describe`
 
@@ -374,7 +374,7 @@ EXAMPLES
   $ shifter sites:describe --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/sites/describe.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/describe.ts)_
+_See code: [src/commands/sites/describe.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/sites/describe.ts)_
 
 ## `shifter sites:list`
 
@@ -396,15 +396,15 @@ EXAMPLES
   $ shifter sites:list --username USERNAME --password PASSWORD
 ```
 
-_See code: [src/commands/sites/list.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/list.ts)_
+_See code: [src/commands/sites/list.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/sites/list.ts)_
 
 ## `shifter sites:start`
 
-describe the command here
+Start site
 
 ```
 USAGE
-  $ shifter sites:start --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
+  $ shifter sites:start
 
 OPTIONS
   -S, --site-id=site-id    Shifter site id
@@ -413,7 +413,11 @@ OPTIONS
   -v, --version            show CLI version
   --development            Work as development mode (Only for Shifter developer team)
   --verbose                Show verbose
+
+EXAMPLES
+  Simple usage
+  $ shifter sites:start --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx
 ```
 
-_See code: [src/commands/sites/start.ts](https://github.com/getshifter/domain-cli/blob/v0.1.2/src/commands/sites/start.ts)_
+_See code: [src/commands/sites/start.ts](https://github.com/getshifter/cli/blob/v0.1.2/src/commands/sites/start.ts)_
 <!-- commandsstop -->
