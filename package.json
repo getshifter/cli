@@ -1,7 +1,7 @@
 {
   "name": "@shifter/cli",
   "description": "Simple Shifter management cli",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Shifter",
   "bin": {
     "shifter": "./bin/run"
