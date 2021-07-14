@@ -1,14 +1,14 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {AbstractCommand} from '../share/abstract.command'
-import {APIClientService} from '../share/api/api.service'
+import {APIClientService} from '../../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
 
-export default class Add extends AbstractCommand {
-  static description = 'Domain verification code command'
+export default class SitesDeleteCommand extends AbstractCommand {
+  static description = 'Sites delete command'
 
   static examples = [
-    'Simply usage',
-    '$ shifter-domain get-verification-code --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
+    'Simple usage',
+    '$ shifter sites:delete --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx',
   ]
 
   static flags = {
@@ -31,10 +31,6 @@ export default class Add extends AbstractCommand {
       char: 'P',
       description: 'Shifter password',
     }),
-    domain: flags.string({
-      char: 'D',
-      description: 'target domain name (eg. example.com)',
-    }),
     'site-id': flags.string({
       char: 'S',
       description: 'Shifter site id',
@@ -42,24 +38,25 @@ export default class Add extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(Add)
+    const {flags} = this.parse(SitesDeleteCommand)
+    const siteId = flags['site-id'] || await cli.prompt('Site id')
+    const development = flags.development === true
+    if (development) this.log('Work as development mode')
     try {
-      const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
-      const siteId = flags['site-id'] || await cli.prompt('Site id')
+      const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, development)
       const site = await clientWithAuth.get(`/latest/sites/${siteId}`)
       if (!site || site.project_id !== siteId) throw new Error(`No such site ${siteId}`)
-
-      const domain = flags.domain || await cli.prompt('Target domain')
-      const domainObj = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
-      if (!domainObj) throw new Error(`No such domain ${domain}`)
-
-      const validationDetail = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}/validation`)
-      this.log(JSON.stringify(validationDetail, null, 2))
+      await clientWithAuth.delete(`/latest/sites/${siteId}`)
+      this.log('Site has been deleted')
     } catch (error) {
       if (APIClientService.isAxiosError(error) && error.response) {
         const response = error.response
+        // eslint-disable-next-line  no-console
+        if (development) console.log(response)
         this.error(`${response.status} - ${response.statusText}\n${response.data.message}`)
       }
+      // eslint-disable-next-line  no-console
+      if (development) console.log(error)
       this.error(error)
     }
   }

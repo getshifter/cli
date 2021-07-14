@@ -1,13 +1,16 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {APIClientService} from '../share/api/api.service'
-import {AbstractCommand} from '../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
 
-export default class Detach extends AbstractCommand {
-  static description = 'Domain detach command'
+export default class Attach extends AbstractCommand {
+  static description = 'Domain attach command'
 
   static examples = [
-    '$ shifter-domain detach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
+    'Simple usage',
+    '$ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com',
+    '\n Use own CDN (Netlify or own CloudFront etc...)',
+    '$ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com --no-shifter-cdn',
   ]
 
   static flags = {
@@ -45,7 +48,7 @@ export default class Detach extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(Detach)
+    const {flags} = this.parse(Attach)
     const siteId = flags['site-id'] || await cli.prompt('Site id')
     const domain = flags.domain || await cli.prompt('Target domain')
     const development = flags.development === true
@@ -58,10 +61,10 @@ export default class Detach extends AbstractCommand {
       const domainObj = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
       if (!domainObj) throw new Error(`No such domain ${domain}`)
       if (domainObj.status !== 'ISSUED') throw new Error('The domain has not been veritied. Please wait for a while and try again.')
-      await clientWithAuth.post(`/latest/sites/${siteId}/domains/${domain}/detach`, {
+      await clientWithAuth.post(`/latest/sites/${siteId}/domains/${domain}/attach`, {
         use_shifter_domain: !noShifterCDN,
       })
-      this.log('Domain has been detached')
+      this.log('Domain has been assigned')
     } catch (error) {
       if (APIClientService.isAxiosError(error) && error.response) {
         const response = error.response

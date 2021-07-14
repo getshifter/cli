@@ -1,14 +1,14 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {AbstractCommand} from '../share/abstract.command'
-import {APIClientService} from '../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
 
-export default class Get extends AbstractCommand {
-  static description = 'Domain get command'
+export default class ArtifactsStatusCommand extends AbstractCommand {
+  static description = 'Artifacts status command'
 
   static examples = [
-    'Simply usage',
-    '$ shifter-domain get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
+    'Simple usage',
+    '$ shifter artifacts:status --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx',
   ]
 
   static flags = {
@@ -31,10 +31,6 @@ export default class Get extends AbstractCommand {
       char: 'P',
       description: 'Shifter password',
     }),
-    domain: flags.string({
-      char: 'D',
-      description: 'target domain name (eg. example.com)',
-    }),
     'site-id': flags.string({
       char: 'S',
       description: 'Shifter site id',
@@ -42,16 +38,14 @@ export default class Get extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(Get)
+    const {flags} = this.parse(ArtifactsStatusCommand)
     try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
       const siteId = flags['site-id'] || await cli.prompt('Site id')
-      const domain = flags.domain || await cli.prompt('Target domain')
-      const domainDetail = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
-      if (domainDetail && domainDetail.attached_project) {
-        delete domainDetail.attached_project.notification_emails
-      }
-      this.log(JSON.stringify(domainDetail, null, 2))
+      const site = await clientWithAuth.get(`/latest/sites/${siteId}`)
+      if (!site || site.project_id !== siteId) throw new Error(`No such site ${siteId}`)
+      const statusDetail = await clientWithAuth.get(`/latest/sites/${siteId}/check_generator_process`)
+      this.log(JSON.stringify(statusDetail, null, 2))
     } catch (error) {
       if (APIClientService.isAxiosError(error) && error.response) {
         const response = error.response

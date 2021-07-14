@@ -1,14 +1,14 @@
 import {flags} from '@oclif/command'
 import cli from 'cli-ux'
-import {AbstractCommand} from '../share/abstract.command'
-import {APIClientService} from '../share/api/api.service'
+import {AbstractCommand} from '../../share/abstract.command'
+import {APIClientService} from '../../share/api/api.service'
 
-export default class List extends AbstractCommand {
-  static description = 'Domain lists command'
+export default class Get extends AbstractCommand {
+  static description = 'Domain get command'
 
   static examples = [
-    'Simply usage',
-    '$ shifter-domain list --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx ',
+    'Simple usage',
+    '$ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com',
   ]
 
   static flags = {
@@ -31,6 +31,10 @@ export default class List extends AbstractCommand {
       char: 'P',
       description: 'Shifter password',
     }),
+    domain: flags.string({
+      char: 'D',
+      description: 'target domain name (eg. example.com)',
+    }),
     'site-id': flags.string({
       char: 'S',
       description: 'Shifter site id',
@@ -38,21 +42,16 @@ export default class List extends AbstractCommand {
   }
 
   async run() {
-    const {flags} = this.parse(List)
+    const {flags} = this.parse(Get)
     try {
       const clientWithAuth = await this.setupApiClient(flags.username, flags.password, flags.verbose, flags.development)
       const siteId = flags['site-id'] || await cli.prompt('Site id')
-      const domains = await clientWithAuth.get(`/latest/sites/${siteId}/domains`)
-      this.log(JSON.stringify(domains.map((domainDetail: {
-        attached_project?: {
-          notification_emails?: object;
-        };
-      }) => {
-        if (domainDetail && domainDetail.attached_project) {
-          delete domainDetail.attached_project.notification_emails
-        }
-        return domainDetail
-      }), null, 2))
+      const domain = flags.domain || await cli.prompt('Target domain')
+      const domainDetail = await clientWithAuth.get(`/latest/sites/${siteId}/domains/${domain}`)
+      if (domainDetail && domainDetail.attached_project) {
+        delete domainDetail.attached_project.notification_emails
+      }
+      this.log(JSON.stringify(domainDetail, null, 2))
     } catch (error) {
       if (APIClientService.isAxiosError(error) && error.response) {
         const response = error.response
