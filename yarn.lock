@@ -542,9 +542,9 @@
     universal-user-agent "^6.0.0"
 
 "@octokit/openapi-types@^10.6.1":
-  version "10.6.2"
-  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-10.6.2.tgz#a9c3a7f9d258d4b0cfdc0fac54f1a81654e00888"
-  integrity sha512-ea+1PU8aRTdr3ilcfmkxw4uFdSICiWl1fP7tYGYRf2gzgbN8Q5wEyHZX7SRjIpbjhJZQ9AAWj5KZC1RuTU7TUw==
+  version "10.6.3"
+  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-10.6.3.tgz#275b6e6f29f94bdf5cc6c904a3eb06787bff464d"
+  integrity sha512-D4WFg5dZHMsaPYlb18JsrMYEtlOwJckIuigKR1uqyplCSxBF80+5mXX0k+fd6NVqRPsnztoXvtyoyUYQkk87Rw==
 
 "@octokit/plugin-paginate-rest@^2.16.4":
   version "2.16.5"
