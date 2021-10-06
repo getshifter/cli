@@ -158,10 +158,10 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
+  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com
 
     Use own CDN (Netlify or own CloudFront etc...)
-  $ shifter attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
+  $ shifter domain:attach --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx  --domain test.example.com 
   --no-shifter-cdn
 ```
 
@@ -236,7 +236,7 @@ OPTIONS
 
 EXAMPLES
   Simple usage
-  $ shifter get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
+  $ shifter domain:get --username USERNAME --password PASSWORD --site-id xxx-YOUR-SITE-ID-xxxx --domain test.example.com
 ```
 
 _See code: [src/commands/domain/get.ts](https://github.com/getshifter/cli/blob/main/src/commands/domain/get.ts)_
