@@ -1,31 +1,25 @@
-import { Command, flags } from "@oclif/command";
-
-const { exec } = require("child_process");
+import {Command, flags} from '@oclif/command'
 
 export default class DevStart extends Command {
-  static description = "describe the command here";
+  static description = 'describe the command here'
 
   static flags = {
-    help: flags.help({ char: "h" }),
+    help: flags.help({char: 'h'}),
     // flag with a value (-n, --name=VALUE)
-    name: flags.string({ char: "n", description: "name to print" }),
+    name: flags.string({char: 'n', description: 'name to print'}),
     // flag with no value (-f, --force)
-    force: flags.boolean({ char: "f" }),
-  };
+    force: flags.boolean({char: 'f'}),
+  }
 
-  static args = [{ name: "file" }];
+  static args = [{name: 'file'}]
 
   async run() {
-    exec("docker-compose up", (error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
+    const {args, flags} = this.parse(DevStart)
+
+    const name = flags.name ?? 'world'
+    this.log(`hello ${name} from /Users/danielolson/Code/getshifter/cli/src/commands/dev/start.ts`)
+    if (args.file && flags.force) {
+      this.log(`you input --force and --file: ${args.file}`)
+    }
   }
 }
