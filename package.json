@@ -15,7 +15,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "axios": "^0.24.0",
-    "cli-ux": "^5.4.9",
+    "cli-ux": "^6.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
