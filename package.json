@@ -19,7 +19,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.0.2",
+    "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
     "@oclif/dev-cli": "1.26.10",
     "@types/node": "16.11.21",
