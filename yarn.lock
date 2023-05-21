@@ -469,12 +469,12 @@
     tslib "^2.3.1"
 
 "@oclif/config@^1", "@oclif/config@^1.18.2":
-  version "1.18.8"
-  resolved "https://registry.yarnpkg.com/@oclif/config/-/config-1.18.8.tgz#efaccbd0381f90a98fa69c9131e14c5a91fc0659"
-  integrity sha512-FetS52+emaZQui0roFSdbBP8ddBkIezEoH2NcjLJRjqkMGdE9Z1V+jsISVqTYXk2KJ1gAI0CHDXFjJlNBYbJBg==
+  version "1.18.9"
+  resolved "https://registry.yarnpkg.com/@oclif/config/-/config-1.18.9.tgz#70c71b7c1e10849c77be2afbc9a61f0cf83d49bd"
+  integrity sha512-CGABvY60IbzK3kecDekCQS4T7fvpraBHV3nvYDtehrqljbMxtTeeJkFJVLbBnZnwzD2u1ApQX/Zggja3lyCoJA==
   dependencies:
     "@oclif/errors" "^1.3.6"
-    "@oclif/parser" "^3.8.10"
+    "@oclif/parser" "^3.8.11"
     debug "^4.3.4"
     globby "^11.1.0"
     is-wsl "^2.1.1"
@@ -600,7 +600,7 @@
     chalk "^4.1.0"
     tslib "^2.5.0"
 
-"@oclif/parser@^3.8.10", "@oclif/parser@^3.8.11", "@oclif/parser@^3.8.9":
+"@oclif/parser@^3.8.11", "@oclif/parser@^3.8.9":
   version "3.8.11"
   resolved "https://registry.yarnpkg.com/@oclif/parser/-/parser-3.8.11.tgz#991a629a053d9fd38b73cc564d4a05e26b329838"
   integrity sha512-B3NweRn1yZw2g7xaF10Zh/zwlqTJJINfU+CRkqll+LaTisSNvZbW0RR9WGan26EqqLp4qzNjzX/e90Ew8l9NLw==
