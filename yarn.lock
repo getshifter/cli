@@ -456,13 +456,25 @@
     is-wsl "^2.1.1"
     tslib "^2.0.0"
 
-"@oclif/config@1.18.9", "@oclif/config@^1", "@oclif/config@^1.18.2":
+"@oclif/config@1.18.9", "@oclif/config@^1.18.2":
   version "1.18.9"
   resolved "https://registry.yarnpkg.com/@oclif/config/-/config-1.18.9.tgz#70c71b7c1e10849c77be2afbc9a61f0cf83d49bd"
   integrity sha512-CGABvY60IbzK3kecDekCQS4T7fvpraBHV3nvYDtehrqljbMxtTeeJkFJVLbBnZnwzD2u1ApQX/Zggja3lyCoJA==
   dependencies:
     "@oclif/errors" "^1.3.6"
     "@oclif/parser" "^3.8.11"
+    debug "^4.3.4"
+    globby "^11.1.0"
+    is-wsl "^2.1.1"
+    tslib "^2.5.0"
+
+"@oclif/config@^1":
+  version "1.18.10"
+  resolved "https://registry.yarnpkg.com/@oclif/config/-/config-1.18.10.tgz#c0f6c2045abff6381689eb01bf2ffe742a8fb793"
+  integrity sha512-SjDtdeQwUnHh5rjqqRaBVH6JrBjxtZlHoIwiosOTFcxooLJhW+qcJ/VFOyYw2h/7Jfl95lSKYq+xnMW4aJZd9w==
+  dependencies:
+    "@oclif/errors" "^1.3.6"
+    "@oclif/parser" "^3.8.12"
     debug "^4.3.4"
     globby "^11.1.0"
     is-wsl "^2.1.1"
