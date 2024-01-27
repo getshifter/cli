@@ -22,7 +22,7 @@
     "@commitlint/cli": "16.3.0",
     "@commitlint/config-conventional": "16.2.4",
     "@oclif/dev-cli": "1.26.10",
-    "@types/node": "18.15.13",
+    "@types/node": "20.11.7",
     "eslint": "7.32.0",
     "eslint-config-oclif": "3.1.0",
     "eslint-config-oclif-typescript": "0.2.0",
